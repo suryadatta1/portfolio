@@ -45,54 +45,54 @@ const contactLinks = [
 
 export default function Contact() {
   return (
-    <section className="relative py-24 md:py-32 px-4 md:px-8 bg-black text-white overflow-hidden">
-      {/* Animated background */}
+    <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8 bg-black text-white overflow-hidden">
+      {/* Animated background - Reduced on mobile */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary-blue/20 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary-cyan/20 rounded-full blur-3xl animate-float-delayed" />
-        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-primary-purple/15 rounded-full blur-3xl animate-float" />
+        <div className="absolute top-0 left-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-primary-blue/20 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-0 right-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-primary-cyan/20 rounded-full blur-3xl animate-float-delayed" />
+        <div className="absolute top-1/2 left-1/2 w-40 h-40 sm:w-60 sm:h-60 md:w-80 md:h-80 bg-primary-purple/15 rounded-full blur-3xl animate-float" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <span className="text-cyan-400 text-sm font-semibold tracking-wider uppercase">Get In Touch</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <span className="text-cyan-400 text-xs sm:text-sm font-semibold tracking-wider uppercase">Get In Touch</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 sm:mt-4">
             Let&apos;s <span className="gradient-text">Connect</span>
           </h2>
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+          <p className="text-gray-400 mt-3 sm:mt-4 max-w-2xl mx-auto text-sm sm:text-base px-2">
             Always open to discussing new opportunities and interesting projects
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6 max-w-4xl mx-auto">
           {contactLinks.map((contact, index) => (
             <a
               key={index}
               href={contact.href}
               target={contact.href.startsWith('http') ? '_blank' : undefined}
               rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className={`group glass rounded-2xl p-6 border transition-all duration-300 hover:scale-105 hover:shadow-2xl ${
+              className={`group glass rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 border transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-2xl ${
                 index % 3 === 0 ? 'border-primary-blue/30 hover:border-primary-blue/60 hover:shadow-primary-blue/20' :
                 index % 3 === 1 ? 'border-primary-cyan/30 hover:border-primary-cyan/60 hover:shadow-primary-cyan/20' :
                 'border-primary-purple/30 hover:border-primary-purple/60 hover:shadow-primary-purple/20'
               }`}
             >
-              <div className="flex items-center gap-4">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center group-hover:scale-110 transition-all ${
+              <div className="flex items-center gap-3 sm:gap-4">
+                <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center group-hover:scale-110 transition-all flex-shrink-0 ${
                   index % 3 === 0 ? 'bg-primary-blue/10 text-blue-400 group-hover:bg-primary-blue/20' :
                   index % 3 === 1 ? 'bg-primary-cyan/10 text-cyan-400 group-hover:bg-primary-cyan/20' :
                   'bg-primary-purple/10 text-purple-400 group-hover:bg-primary-purple/20'
                 }`}>
                   {contact.icon}
                 </div>
-                <div className="flex-1">
-                  <p className="text-sm text-cyan-400 font-semibold mb-1">{contact.name}</p>
-                  <p className="text-white font-medium break-all group-hover:text-cyan-300 transition-colors">
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs sm:text-sm text-cyan-400 font-semibold mb-1">{contact.name}</p>
+                  <p className="text-sm sm:text-base text-white font-medium break-words sm:break-all group-hover:text-cyan-300 transition-colors">
                     {contact.value}
                   </p>
                 </div>
-                <div className="text-cyan-400 opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="text-cyan-400 opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all flex-shrink-0">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
@@ -102,8 +102,8 @@ export default function Contact() {
         </div>
 
         {/* Footer */}
-        <div className="mt-20 text-center border-t border-primary-blue/20 pt-8">
-          <p className="text-gray-400 text-sm">
+        <div className="mt-12 sm:mt-16 md:mt-20 text-center border-t border-primary-blue/20 pt-6 sm:pt-8">
+          <p className="text-gray-400 text-xs sm:text-sm px-2">
             © {new Date().getFullYear()} Surya Datta. Built with Next.js & Tailwind CSS
           </p>
         </div>

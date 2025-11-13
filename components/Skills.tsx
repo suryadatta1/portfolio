@@ -39,18 +39,18 @@ export default function Skills() {
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-blue/5 via-primary-cyan/5 to-primary-purple/5" />
       
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-10 sm:mb-12 md:mb-16 animate-fade-in">
+      <div className="max-w-7xl mx-auto relative z-10 px-2 sm:px-0">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16 animate-fade-in">
           <span className="text-cyan-400 text-xs sm:text-sm font-semibold tracking-wider uppercase mb-2 block">Technical Skills</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-2 sm:mt-4 text-white mb-3 sm:mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-2 sm:mt-4 text-white mb-2 sm:mb-3 md:mb-4">
             Technologies I <span className="gradient-text">Work With</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-xs sm:text-sm md:text-base px-2">
+          <p className="text-gray-400 max-w-2xl mx-auto text-xs sm:text-sm md:text-base px-2 sm:px-0">
             A collection of tools and technologies I use to build modern, scalable applications
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 md:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2.5 sm:gap-3 md:gap-4 lg:gap-6">
           {skills.map((skill, index) => {
             const IconComponent = skill.icon;
             return (
@@ -80,11 +80,11 @@ export default function Skills() {
                   <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-primary-blue/20 blur-xl animate-pulse" />
                 </div>
                 
-                <div className="relative z-10 text-center flex flex-col items-center justify-center min-h-[90px] sm:min-h-[100px] md:min-h-[120px]">
-                  <div className="text-3xl sm:text-4xl mb-2 sm:mb-3 transform group-hover:scale-110 group-hover:rotate-3 group-focus:scale-110 transition-all duration-500 flex justify-center">
-                    <IconComponent className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-white group-hover:text-cyan-400 group-focus:text-yellow-400 transition-all duration-500 drop-shadow-lg" />
+                <div className="relative z-10 text-center flex flex-col items-center justify-center min-h-[80px] xs:min-h-[90px] sm:min-h-[100px] md:min-h-[120px]">
+                  <div className="text-2xl sm:text-3xl md:text-4xl mb-1.5 sm:mb-2 md:mb-3 transform group-hover:scale-110 group-hover:rotate-3 group-focus:scale-110 transition-all duration-500 flex justify-center">
+                    <IconComponent className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 text-white group-hover:text-cyan-400 group-focus:text-yellow-400 transition-all duration-500 drop-shadow-lg" />
                   </div>
-                  <p className="font-semibold text-[10px] xs:text-xs sm:text-sm md:text-base text-gray-100 group-hover:text-white group-focus:text-yellow-300 transition-all duration-500 mt-auto leading-tight sm:leading-normal px-1">
+                  <p className="font-semibold text-[9px] xs:text-[10px] sm:text-xs md:text-sm lg:text-base text-gray-100 group-hover:text-white group-focus:text-yellow-300 transition-all duration-500 mt-auto leading-tight sm:leading-normal px-0.5 sm:px-1">
                     {skill.name}
                   </p>
                 </div>

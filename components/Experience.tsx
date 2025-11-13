@@ -54,14 +54,14 @@ const experiences: ExperienceItem[] = [
 
 export default function Experience() {
   return (
-    <section className="relative py-24 md:py-32 px-4 md:px-8 bg-black text-white overflow-hidden">
+    <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8 bg-black text-white overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900/50 via-black to-black" />
       
       <div className="max-w-5xl mx-auto relative z-10">
-        <div className="text-center mb-20">
-          <span className="text-cyan-400 text-sm font-semibold tracking-wider uppercase">Work Experience</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4">
+        <div className="text-center mb-12 sm:mb-16 md:mb-20">
+          <span className="text-cyan-400 text-xs sm:text-sm font-semibold tracking-wider uppercase">Work Experience</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 sm:mt-4">
             Professional <span className="gradient-text">Journey</span>
           </h2>
         </div>
@@ -69,17 +69,17 @@ export default function Experience() {
         {/* Timeline Container */}
         <div className="relative">
           {/* Vertical Timeline Line - Glowing */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary-blue via-primary-cyan to-primary-purple transform md:-translate-x-1/2 hidden md:block">
+          <div className="absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-0.5 sm:w-1 bg-gradient-to-b from-primary-blue via-primary-cyan to-primary-purple transform md:-translate-x-1/2 hidden md:block">
             <div className="absolute inset-0 bg-primary-blue blur-sm opacity-50" />
           </div>
           
           {/* Mobile Timeline Line */}
-          <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-primary-blue via-primary-cyan to-primary-purple md:hidden">
+          <div className="absolute left-4 sm:left-6 top-0 bottom-0 w-0.5 sm:w-1 bg-gradient-to-b from-primary-blue via-primary-cyan to-primary-purple md:hidden">
             <div className="absolute inset-0 bg-primary-blue blur-sm opacity-50" />
           </div>
 
           {/* Experience Cards */}
-          <div className="space-y-16 md:space-y-20">
+          <div className="space-y-12 sm:space-y-16 md:space-y-20">
             {experiences.map((exp, index) => {
               const isBlue = index % 3 === 0
               const isCyan = index % 3 === 1
@@ -88,10 +88,10 @@ export default function Experience() {
               return (
                 <div
                   key={index}
-                  className="relative flex items-start gap-8 group"
+                  className="relative flex items-start gap-3 sm:gap-4 md:gap-8 group"
                 >
                   {/* Timeline Node - Circular with glow */}
-                  <div className={`relative z-20 flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-full border-4 border-black shadow-lg transform transition-all duration-300 group-hover:scale-125 group-hover:shadow-2xl ${
+                  <div className={`relative z-20 flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 rounded-full border-2 sm:border-3 md:border-4 border-black shadow-lg transform transition-all duration-300 group-hover:scale-125 group-hover:shadow-2xl ${
                     isBlue ? 'bg-primary-blue group-hover:shadow-primary-blue/50' :
                     isCyan ? 'bg-primary-cyan group-hover:shadow-primary-cyan/50' :
                     'bg-primary-purple group-hover:shadow-primary-purple/50'
@@ -101,21 +101,21 @@ export default function Experience() {
                       isCyan ? 'bg-primary-cyan' :
                       'bg-primary-purple'
                     }`} />
-                    <div className="absolute inset-2 rounded-full bg-white/20" />
+                    <div className="absolute inset-1 sm:inset-1.5 md:inset-2 rounded-full bg-white/20" />
                   </div>
 
                   {/* Experience Card */}
-                  <div className="flex-1 ml-4 md:ml-0">
-                    <div className={`bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gray-700/50 hover:border-gray-600 transition-all duration-300 hover:shadow-2xl group-hover:scale-[1.02] ${
+                  <div className="flex-1 ml-2 sm:ml-3 md:ml-0">
+                    <div className={`bg-gray-800/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-gray-700/50 hover:border-gray-600 transition-all duration-300 hover:shadow-2xl group-hover:scale-[1.02] ${
                       isBlue ? 'hover:shadow-primary-blue/10' :
                       isCyan ? 'hover:shadow-primary-cyan/10' :
                       'hover:shadow-primary-purple/10'
                     }`}>
                       {/* Header Section */}
-                      <div className="mb-6">
+                      <div className="mb-4 sm:mb-6">
                         {/* Period */}
-                        <div className="mb-3">
-                          <span className={`text-xs font-semibold tracking-wider uppercase ${
+                        <div className="mb-2 sm:mb-3">
+                          <span className={`text-[10px] sm:text-xs font-semibold tracking-wider uppercase ${
                             isBlue ? 'text-primary-blue' :
                             isCyan ? 'text-primary-cyan' :
                             'text-primary-purple'
@@ -125,7 +125,7 @@ export default function Experience() {
                         </div>
                         
                         {/* Title - Large Colored */}
-                        <h3 className={`text-3xl md:text-4xl font-bold mb-2 ${
+                        <h3 className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2 leading-tight ${
                           isBlue ? 'text-primary-blue' :
                           isCyan ? 'text-primary-cyan' :
                           'text-primary-purple'
@@ -134,13 +134,13 @@ export default function Experience() {
                         </h3>
                         
                         {/* Company - White */}
-                        <p className="text-xl md:text-2xl text-white font-semibold mb-2">
+                        <p className="text-lg sm:text-xl md:text-2xl text-white font-semibold mb-1 sm:mb-2">
                           {exp.company}
                         </p>
                         
                         {/* Project/Client - Light Colored */}
                         {exp.project && (
-                          <p className={`text-lg font-medium ${
+                          <p className={`text-sm sm:text-base md:text-lg font-medium ${
                             isBlue ? 'text-blue-400' :
                             isCyan ? 'text-cyan-400' :
                             'text-purple-400'
@@ -151,11 +151,11 @@ export default function Experience() {
                       </div>
 
                       {/* Technologies - Colored Tags */}
-                      <div className="mb-6 flex flex-wrap gap-2">
+                      <div className="mb-4 sm:mb-6 flex flex-wrap gap-1.5 sm:gap-2">
                         {exp.technologies.map((tech, idx) => (
                           <span
                             key={idx}
-                            className={`px-3 py-1.5 rounded-full text-xs md:text-sm font-medium backdrop-blur-sm border ${
+                            className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs md:text-sm font-medium backdrop-blur-sm border ${
                               isBlue ? 'bg-primary-blue/20 border-primary-blue/50 text-blue-300' :
                               isCyan ? 'bg-primary-cyan/20 border-primary-cyan/50 text-cyan-300' :
                               'bg-primary-purple/20 border-primary-purple/50 text-purple-300'
@@ -167,20 +167,20 @@ export default function Experience() {
                       </div>
 
                       {/* Achievements with Checkmarks */}
-                      <div className="space-y-3">
+                      <div className="space-y-2 sm:space-y-3">
                         {exp.achievements.map((achievement, idx) => (
                           <div
                             key={idx}
-                            className="flex items-start gap-3 group/item"
+                            className="flex items-start gap-2 sm:gap-3 group/item"
                           >
                             {/* Checkmark */}
-                            <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 transition-colors border ${
+                            <div className={`flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center mt-0.5 transition-colors border ${
                               isBlue ? 'bg-primary-blue/20 border-primary-blue/50 group-hover/item:bg-primary-blue/30' :
                               isCyan ? 'bg-primary-cyan/20 border-primary-cyan/50 group-hover/item:bg-primary-cyan/30' :
                               'bg-primary-purple/20 border-primary-purple/50 group-hover/item:bg-primary-purple/30'
                             }`}>
                               <svg 
-                                className={`w-3 h-3 ${
+                                className={`w-2.5 h-2.5 sm:w-3 sm:h-3 ${
                                   isBlue ? 'text-primary-blue' :
                                   isCyan ? 'text-primary-cyan' :
                                   'text-primary-purple'
@@ -199,7 +199,7 @@ export default function Experience() {
                             </div>
                             
                             {/* Achievement Text */}
-                            <p className="text-gray-300 text-sm md:text-base leading-relaxed flex-1 group-hover/item:text-gray-200 transition-colors">
+                            <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed flex-1 group-hover/item:text-gray-200 transition-colors">
                               {achievement}
                             </p>
                           </div>

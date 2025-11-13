@@ -14,22 +14,22 @@ export default function Home() {
       <ScrollProgress />
       <ScrollToTop />
       <Navigation />
-      <section id="home" className="scroll-mt-16 md:scroll-mt-20">
+      <section id="home" className="scroll-mt-14 sm:scroll-mt-16 md:scroll-mt-20">
         <Header />
       </section>
-      <section id="about" className="scroll-mt-16 md:scroll-mt-20">
+      <section id="about" className="scroll-mt-14 sm:scroll-mt-16 md:scroll-mt-20">
         <About />
       </section>
-      <section id="experience" className="scroll-mt-16 md:scroll-mt-20">
+      <section id="experience" className="scroll-mt-14 sm:scroll-mt-16 md:scroll-mt-20">
         <Experience />
       </section>
-      <section id="skills" className="scroll-mt-16 md:scroll-mt-20">
+      <section id="skills" className="scroll-mt-14 sm:scroll-mt-16 md:scroll-mt-20">
         <Skills />
       </section>
-      <section id="education" className="scroll-mt-16 md:scroll-mt-20">
+      <section id="education" className="scroll-mt-14 sm:scroll-mt-16 md:scroll-mt-20">
         <Education />
       </section>
-      <section id="contact" className="scroll-mt-16 md:scroll-mt-20">
+      <section id="contact" className="scroll-mt-14 sm:scroll-mt-16 md:scroll-mt-20">
         <Contact />
       </section>
     </main>
