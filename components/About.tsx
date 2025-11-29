@@ -1,61 +1,95 @@
 'use client'
 
-import FadeInOnScroll from './FadeInOnScroll'
-
 export default function About() {
-  return (
-    <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8 bg-black text-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
-          {/* Left side - Visual element */}
-          <FadeInOnScroll>
-            <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary-blue/20 via-primary-cyan/20 to-primary-purple/20 rounded-2xl sm:rounded-3xl blur-3xl" />
-            <div className="relative glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 border border-primary-cyan/30">
-              <div className="space-y-3 sm:space-y-4">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-primary-blue/20 to-primary-cyan/20 rounded-xl sm:rounded-2xl flex items-center justify-center">
-                  <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-primary-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-primary-blue to-primary-cyan bg-clip-text text-transparent">Innovation Driven</h3>
-                <p className="text-sm sm:text-base text-gray-400">Transforming ideas into scalable solutions</p>
-              </div>
-            </div>
-            </div>
-          </FadeInOnScroll>
+  const stats = [
+    { label: 'YEARS_EXPERIENCE', value: '5+' },
+    { label: 'PROJECTS_DEPLOYED', value: '5+' },
+    { label: 'SYSTEMS_OPTIMIZED', value: '20+' }
+  ]
 
-          {/* Right side - Content */}
-          <FadeInOnScroll delay={200}>
-            <div>
-            <div className="inline-block mb-4 sm:mb-6">
-              <span className="text-cyan-400 text-xs sm:text-sm font-semibold tracking-wider uppercase">About Me</span>
+  return (
+    <section id="about" className="py-20 px-4 sm:px-6 md:px-8 bg-terminal-black/80 backdrop-blur-sm text-terminal-green font-mono">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-bold mb-12 flex items-center">
+          <span className="mr-2">{'>'}</span> whoami
+        </h2>
+
+        <div className="grid lg:grid-cols-3 gap-8">
+          {/* Main Bio */}
+          <div className="lg:col-span-2 space-y-6">
+            <div className="border border-terminal-green/30 bg-terminal-black/50 p-6 md:p-8">
+              <div className="space-y-4 text-gray-300 leading-relaxed">
+                <p className="text-white text-lg">
+                  <span className="text-terminal-green">{'>'}</span> Backend Lead specializing in <span className="text-terminal-green">scalable infrastructure</span> and <span className="text-terminal-green">healthcare technology</span>.
+                </p>
+
+                <p>
+                  Currently leading backend development at <span className="text-white">Aiphant Technologies</span>, where I architect secure REST APIs for patient data management and integrate cutting-edge AI solutions. My work bridges critical healthcare systems with modern cloud infrastructure using <span className="text-terminal-green">AWS</span>, <span className="text-terminal-green">Terraform</span>, and <span className="text-terminal-green">Docker</span>.
+                </p>
+
+                <p>
+                  I've automated infrastructure provisioning that reduced deployment time by 60%, embedded LLM models for real-time health record analysis, and built microservices handling millions of API requests. My approach combines clean architecture with DevOps best practices to deliver production-ready solutions.
+                </p>
+
+                <p>
+                  Beyond code, I mentor developers, lead technical planning sessions, and drive system design decisions. I believe in writing code that's not just functional, but maintainable, testable, and documented.
+                </p>
+              </div>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
-              Passionate about{' '}
-              <span className="gradient-text">building products</span>{' '}
-              that matter
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mb-4 sm:mb-6">
-              I am a Software Engineer with a passion for developing products that contribute to an organization&apos;s growth. 
-              I thrive on embracing new challenges and seeking out learning opportunities to expand my knowledge and skills.
-            </p>
-            <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4">
-              <div className="px-3 py-1.5 sm:px-4 sm:py-2 bg-primary-blue/10 border border-primary-blue/30 rounded-full">
-                <span className="text-blue-400 text-xs sm:text-sm">Problem Solver</span>
-              </div>
-              <div className="px-3 py-1.5 sm:px-4 sm:py-2 bg-primary-cyan/10 border border-primary-cyan/30 rounded-full">
-                <span className="text-cyan-400 text-xs sm:text-sm">Team Player</span>
-              </div>
-              <div className="px-3 py-1.5 sm:px-4 sm:py-2 bg-primary-purple/10 border border-primary-purple/30 rounded-full">
-                <span className="text-purple-400 text-xs sm:text-sm">Team Leader</span>
-              </div>
-              <div className="px-3 py-1.5 sm:px-4 sm:py-2 bg-primary-blue/10 border border-primary-blue/30 rounded-full">
-                <span className="text-blue-400 text-xs sm:text-sm">Continuous Learner</span>
+
+            {/* Current Focus */}
+            <div className="border border-terminal-dim/30 bg-terminal-black/30 p-6">
+              <h3 className="text-lg font-bold mb-4 text-white flex items-center">
+                <span className="text-terminal-green mr-2">$</span> current --focus
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {['Cloud Architecture', 'Healthcare APIs', 'Infrastructure as Code', 'LLM Integration', 'Team Leadership'].map((focus, i) => (
+                  <span key={i} className="px-3 py-1 bg-terminal-dim/20 border border-terminal-dim text-gray-300 text-sm hover:border-terminal-green hover:text-white transition-colors">
+                    {focus}
+                  </span>
+                ))}
               </div>
             </div>
+          </div>
+
+          {/* Stats & Quick Facts */}
+          <div className="lg:col-span-1 space-y-6">
+            {/* Stats */}
+            <div className="border border-terminal-green/30 bg-terminal-black/50 p-6">
+              <h3 className="text-sm font-bold mb-6 text-terminal-dim uppercase tracking-wider">Performance Metrics</h3>
+              <div className="space-y-4">
+                {stats.map((stat, i) => (
+                  <div key={i} className="border-b border-terminal-dim/20 pb-3 last:border-0">
+                    <div className="text-terminal-dim text-xs mb-1">{stat.label}</div>
+                    <div className="text-white text-2xl font-bold">{stat.value}</div>
+                  </div>
+                ))}
+              </div>
             </div>
-          </FadeInOnScroll>
+
+            {/* Quick Facts */}
+            <div className="border border-terminal-dim/30 bg-terminal-black/30 p-6">
+              <h3 className="text-sm font-bold mb-4 text-terminal-dim uppercase tracking-wider">System Info</h3>
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-terminal-dim">ROLE:</span>
+                  <span className="text-white">Backend Lead</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-terminal-dim">SPECIALTY:</span>
+                  <span className="text-white">Node.js</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-terminal-dim">STATUS:</span>
+                  <span className="text-terminal-green">Available</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-terminal-dim">LOCATION:</span>
+                  <span className="text-white">India</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

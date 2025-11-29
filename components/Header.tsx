@@ -1,134 +1,113 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
+import { FaTerminal, FaCode, FaRocket } from 'react-icons/fa'
 
 export default function Header() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [bootSequence, setBootSequence] = useState<string[]>([])
+  const [isBooted, setIsBooted] = useState(false)
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
+    const sequence = [
+      '> initializing_portfolio.exe...',
+      '> loading_kernel_modules... [OK]',
+      '> mounting_file_system... [OK]',
+      '> establishing_secure_connection... [OK]',
+      '> loading_user_profile(surya_datta)... [OK]',
+      '> access_granted'
+    ]
+
+    let currentIndex = 0
+    const interval = setInterval(() => {
+      if (currentIndex < sequence.length) {
+        setBootSequence(prev => [...prev, sequence[currentIndex]])
+        currentIndex++
+      } else {
+        clearInterval(interval)
+        setTimeout(() => setIsBooted(true), 100)
+      }
+    }, 150)
+
+    return () => clearInterval(interval)
   }, [])
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
-  }
+  const stats = [
+    { icon: FaCode, label: 'Years Experience', value: '5+' },
+    { icon: FaRocket, label: 'Projects Deployed', value: '5+' },
+    { icon: FaTerminal, label: 'Technologies', value: '12+' }
+  ]
 
   return (
-    <header className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-16 md:pt-20 pb-8 md:pb-0">
-      {/* Animated mesh gradient background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-blue/20 via-primary-cyan/30 to-primary-purple/20 animate-gradient opacity-60" />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-purple/10 via-transparent to-primary-blue/10 animate-gradient" style={{ animationDelay: '2s', animationDuration: '20s' }} />
-      </div>
-      
-      {/* Animated grid pattern */}
-      <div className="absolute inset-0 opacity-[0.08]">
-        <div 
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(59, 130, 246, 0.3) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(59, 130, 246, 0.3) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px',
-            backgroundPosition: '0 0',
-            animation: 'gridMove 30s linear infinite'
-          }}
-        />
-      </div>
-      
-      {/* Large floating orbs with mouse interaction - Reduced size on mobile */}
-      <div 
-        className="absolute w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-primary-blue/20 rounded-full blur-3xl animate-float transition-all duration-1000 ease-out"
-        style={{
-          left: `${50 + mousePosition.x / 40}%`,
-          top: `${30 + mousePosition.y / 40}%`,
-          transform: 'translate(-50%, -50%)',
-        }}
-      />
-      <div 
-        className="absolute w-[250px] h-[250px] md:w-[400px] md:h-[400px] bg-primary-cyan/25 rounded-full blur-3xl animate-float-delayed transition-all duration-1200 ease-out"
-        style={{
-          right: `${20 + mousePosition.x / 50}%`,
-          bottom: `${20 + mousePosition.y / 50}%`,
-          transform: 'translate(50%, 50%)',
-        }}
-      />
-      <div 
-        className="absolute w-[200px] h-[200px] md:w-[350px] md:h-[350px] bg-primary-purple/20 rounded-full blur-3xl animate-float transition-all duration-1500 ease-out"
-        style={{
-          left: `${70 + mousePosition.x / 60}%`,
-          bottom: `${30 + mousePosition.y / 60}%`,
-          transform: 'translate(-50%, 50%)',
-        }}
-      />
-      
-      {/* Additional smaller animated orbs - Hidden on mobile */}
-      <div className="hidden md:block absolute top-1/4 left-1/4 w-64 h-64 bg-primary-cyan/15 rounded-full blur-2xl animate-float" style={{ animationDelay: '1s' }} />
-      <div className="hidden md:block absolute bottom-1/4 right-1/4 w-48 h-48 bg-primary-purple/15 rounded-full blur-2xl animate-float-delayed" style={{ animationDelay: '3s' }} />
-      
-      {/* Animated particles effect - Reduced on mobile */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(10)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-primary-cyan/40 rounded-full animate-float hidden sm:block"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${5 + Math.random() * 5}s`,
-            }}
-          />
-        ))}
+    <header className="min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-8 pt-20 font-mono text-terminal-green relative">
+      <div className="max-w-6xl mx-auto w-full">
+        {/* Boot Sequence */}
+        <div className={`space-y-2 text-sm sm:text-base transition-opacity duration-1000 mb-8 ${isBooted ? 'opacity-30' : 'opacity-70'}`}>
+          {bootSequence.map((line, index) => (
+            <div key={index}>{line}</div>
+          ))}
+        </div>
+
+        {/* Main Content - Appears after boot */}
+        <div className={`transition-all duration-1000 transform ${isBooted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
+            {/* Left: Main Hero */}
+            <div className="lg:col-span-2 space-y-8">
+              <div>
+                <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 text-white">
+                  <span className="text-terminal-green">{'>'}</span> Surya Datta
+                </h1>
+                <p className="text-xl sm:text-2xl text-gray-400 mb-4">
+                  Backend Lead @ Aiphant Technologies
+                </p>
+                <p className="text-lg text-gray-300 max-w-2xl">
+                  Specializing in scalable infrastructure, healthcare tech, and cloud architecture. Building production-ready systems with Node.js, AWS, and Terraform.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-3">
+                {['Node.js', 'AWS', 'Docker', 'Terraform', 'PostgreSQL', 'Microservices'].map((tech, i) => (
+                  <span key={i} className="px-3 py-1 border border-terminal-dim/30 text-gray-300 text-sm hover:border-terminal-green hover:text-terminal-green transition-colors">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                <a href="#experience" className="px-6 py-3 border border-terminal-green text-terminal-green hover:bg-terminal-green hover:text-terminal-black transition-all duration-300">
+                  View Experience
+                </a>
+                <a href="#contact" className="px-6 py-3 border border-terminal-green text-white hover:bg-terminal-green hover:text-terminal-black transition-all duration-300">
+                  Contact Me
+                </a>
+              </div>
+            </div>
+
+            {/* Right: Stats */}
+            <div className="lg:col-span-1 space-y-4">
+              {stats.map((stat, i) => (
+                <div key={i} className="border border-terminal-dim/30 bg-terminal-black/50 p-4 hover:border-terminal-green/50 transition-colors">
+                  <div className="flex items-center gap-3 mb-2">
+                    <stat.icon className="w-5 h-5 text-terminal-green" />
+                    <span className="text-xs text-terminal-dim uppercase tracking-wider">{stat.label}</span>
+                  </div>
+                  <div className="text-3xl font-bold text-white">{stat.value}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 md:px-8 animate-fade-in w-full">
-        <div className="mb-4 sm:mb-6 animate-slide-up">
-          <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 rounded-full glass mb-6 sm:mb-8 border border-primary-cyan/30">
-            <span className="text-cyan-400 text-xs sm:text-sm font-medium">Available for Opportunities</span>
-          </div>
-        </div>
-        
-        <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black mb-4 sm:mb-6 animate-slide-up leading-tight" style={{ animationDelay: '0.1s' }}>
-          <span className="gradient-text">Surya</span>
-          <br />
-          <span className="text-white">Datta</span>
-        </h1>
-        
-        <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
-          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-300 mb-3 sm:mb-4 font-light">
-            Software Engineer
-          </p>
-          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8 px-2">
-            Building scalable solutions that drive organizational growth
-          </p>
-          
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mt-6 sm:mt-8 px-4">
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-primary-blue to-primary-cyan text-white rounded-full font-semibold text-sm sm:text-base hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-primary-blue/50"
-            >
-              Get In Touch
-            </button>
-            <button
-              onClick={() => scrollToSection('experience')}
-              className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 glass border border-primary-cyan/30 text-primary-cyan rounded-full font-semibold text-sm sm:text-base hover:scale-105 active:scale-95 transition-all duration-300 hover:border-primary-cyan/60"
-            >
-              View My Work
-            </button>
-          </div>
-        </div>
-      </div>
+      {/* Scroll Indicator */}
+      <a
+        href="#about"
+        className={`absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-gray-500 hover:text-terminal-green transition-all duration-1000 cursor-pointer ${isBooted ? 'opacity-100' : 'opacity-0'}`}
+        aria-label="Scroll to content"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </a>
     </header>
   )
 }
