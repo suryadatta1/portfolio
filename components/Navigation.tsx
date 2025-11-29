@@ -1,17 +1,17 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 
 export default function Navigation() {
   const [activeSection, setActiveSection] = useState('')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
-  const navItems = [
+  const navItems = useMemo(() => [
     { name: '~/about', href: '#about' },
     { name: '~/experience', href: '#experience' },
     { name: '~/skills', href: '#skills' },
     { name: '~/contact', href: '#contact' },
-  ]
+  ], [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +37,7 @@ export default function Navigation() {
     window.addEventListener('scroll', handleScroll)
     handleScroll() // Call once on mount
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [navItems])
 
   return (
     <>
@@ -63,8 +63,8 @@ export default function Navigation() {
                   key={item.name}
                   href={item.href}
                   className={`font-mono text-sm transition-colors duration-300 ${activeSection === item.href.substring(1)
-                      ? 'text-terminal-green'
-                      : 'text-terminal-dim hover:text-terminal-green'
+                    ? 'text-terminal-green'
+                    : 'text-terminal-dim hover:text-terminal-green'
                     }`}
                 >
                   {item.name}

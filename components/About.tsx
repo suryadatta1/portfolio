@@ -28,11 +28,11 @@ export default function About() {
                 </p>
 
                 <p>
-                  I've automated infrastructure provisioning that reduced deployment time by 60%, embedded LLM models for real-time health record analysis, and built microservices handling millions of API requests. My approach combines clean architecture with DevOps best practices to deliver production-ready solutions.
+                  I&apos;ve automated infrastructure provisioning that reduced deployment time by 60%, embedded LLM models for real-time health record analysis, and built microservices handling millions of API requests. My approach combines clean architecture with DevOps best practices to deliver production-ready solutions.
                 </p>
 
                 <p>
-                  Beyond code, I mentor developers, lead technical planning sessions, and drive system design decisions. I believe in writing code that's not just functional, but maintainable, testable, and documented.
+                  Beyond code, I mentor developers, lead technical planning sessions, and drive system design decisions. I believe in writing code that&apos;s not just functional, but maintainable, testable, and documented.
                 </p>
               </div>
             </div>

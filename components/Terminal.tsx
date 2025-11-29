@@ -48,13 +48,13 @@ export default function Terminal() {
                 output = "Full Stack Engineer passionate about building scalable applications."
                 break
             case 'experience':
-                output = "Backend Lead at Aiphant, formerly at Recruit CRM and Vassarlabs."
+                output = 'Backend Lead @ Aiphant Technologies. Expert in Node.js, AWS, Docker, and cloud infrastructure.'
                 break
             case 'skills':
                 output = "Node.js, React, AWS, Docker, PostgreSQL, MongoDB..."
                 break
             case 'contact':
-                output = "Email: suryadattatangirala@outlook.com | Phone: +91 9948568657"
+                output = 'Email: suryadattatangirala@outlook.com | LinkedIn: linkedin.com/in/surya-datta | GitHub: github.com/suryadatta1'
                 break
             case 'clear':
                 setHistory([])
@@ -65,7 +65,7 @@ export default function Terminal() {
             case '':
                 return
             default:
-                output = <span className="text-red-500">Command not found: {trimmedCmd}. Type 'help' for available commands.</span>
+                output = <span className="text-red-500">Command not found: {trimmedCmd}. Type &apos;help&apos; for available commands.</span>
         }
 
         setHistory(prev => [...prev, { input: cmd, output }])
@@ -107,8 +107,8 @@ export default function Terminal() {
                     {/* Content */}
                     <div className="flex-1 p-4 font-mono text-sm overflow-y-auto custom-scrollbar" onClick={() => inputRef.current?.focus()}>
                         <div className="space-y-2">
-                            <div className="text-gray-400">Welcome to Surya's Interactive Terminal v1.0.0</div>
-                            <div className="text-gray-400">Type <span className="text-terminal-green">'help'</span> to see available commands.</div>
+                            <div className="text-gray-400">Welcome to Surya&apos;s Interactive Terminal v1.0.0</div>
+                            <div className="text-gray-400">Type <span className="text-terminal-green">&apos;help&apos;</span> to see available commands.</div>
 
                             {history.map((entry, i) => (
                                 <div key={i} className="space-y-1">
